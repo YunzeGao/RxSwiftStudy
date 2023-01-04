@@ -6,6 +6,9 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
@@ -44,6 +47,7 @@ DEPENDENCIES:
   - HandyJSON
   - LookinServer
   - RxCocoa
+  - RxGesture
   - RxSwift
   - RxTheme
   - SnapKit
@@ -55,6 +59,7 @@ SPEC REPOS:
     - HandyJSON
     - LookinServer
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - RxTheme
@@ -66,6 +71,7 @@ SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   LookinServer: bb667a77f1ee594a8e91226e729dbe49f3401f5c
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTheme: be60cb14e0544b3cbd574cc37fed35ba9d61aa1f
@@ -73,6 +79,6 @@ SPEC CHECKSUMS:
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 32497aba929f518470cd20a7f32e95f2d23d2342
+PODFILE CHECKSUM: f9cc90ee21259bac7309a3c92150fa236119c53f
 
 COCOAPODS: 1.11.3

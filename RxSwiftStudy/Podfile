@@ -9,6 +9,7 @@ target 'RxSwiftStudy' do
   pod 'SnapKit'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxGesture'
   pod 'RxTheme'
   pod 'HandyJSON'
   pod 'SwiftyJSON'

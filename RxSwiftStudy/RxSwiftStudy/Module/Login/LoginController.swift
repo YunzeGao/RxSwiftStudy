@@ -7,61 +7,33 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
+import RxGesture
 import SnapKit
 
-private let margin = 20
-private let height = 20
+fileprivate let margin = 20
+fileprivate let btnHeight = 40
+
+class LoginViewModel {
+    // 输出
+    let allValid : Observable<Bool>
+    
+    // 输入
+    init(usernameValid : Observable<Bool>, passwordValid : Observable<Bool>) {
+        allValid = Observable
+            .combineLatest(usernameValid, passwordValid) { $0 && $1 }
+            .share(replay: 1)
+    }
+}
 
 class LoginController: UIViewController {
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     private var viewModel: LoginViewModel!
     
-    private lazy var nameLabel : UILabel = {
-        var label = UILabel()
-        label.text = "UserName"
-        label.font = UIFont(name: "Avenir-Oblique", size: 16)
-        return label
-    }()
+    private lazy var username = LoginInputView(name: "UserName")
     
-    private lazy var nameInput : UITextField = {
-        var field = UITextField()
-        field.borderStyle = .roundedRect
-        field.clearButtonMode = .always
-        return field
-    }()
-    
-    private lazy var nameValidTips : UILabel = {
-        var label = UILabel()
-        label.text = "Username has to be at least 5 characters!"
-        label.textColor = UIColor.red
-        label.font = UIFont(name: "Avenir-Oblique", size: 14)
-        return label
-    }()
-    
-    private lazy var passwordLabel : UILabel = {
-        var label = UILabel()
-        label.text = "Password"
-        label.font = UIFont(name: "Avenir-Oblique", size: 16)
-        return label
-    }()
-    
-    private lazy var passwordInput : UITextField = {
-        var field = UITextField()
-        field.borderStyle = .roundedRect
-        field.clearButtonMode = .always
-        return field
-    }()
-    
-    private lazy var passwordValidTips : UILabel = {
-        var label = UILabel()
-        label.text = "Password has to be at least 5 characters!"
-        label.textColor = UIColor.red
-        label.font = UIFont(name: "Avenir-Oblique", size: 14)
-        return label
-    }()
+    private lazy var password = LoginInputView(name: "Password", isSecureTextEntry: true)
     
     private lazy var submitButton : UIButton = {
         var btn = UIButton(type: .custom)
@@ -82,65 +54,34 @@ class LoginController: UIViewController {
     
     func setupUI() {
         self.view.backgroundColor = UIColor.white
-        self.view.addSubview(nameLabel)
-        self.view.addSubview(nameInput)
-        self.view.addSubview(nameValidTips)
-        self.view.addSubview(passwordLabel)
-        self.view.addSubview(passwordInput)
-        self.view.addSubview(passwordValidTips)
+        self.view.addSubview(username)
+        self.view.addSubview(password)
         self.view.addSubview(submitButton)
         
-        nameLabel.snp.makeConstraints { make in
+        username.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(margin)
             make.left.equalToSuperview().offset(margin)
+            make.right.equalToSuperview().offset(-margin)
         }
-        nameInput.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(margin)
+        password.snp.makeConstraints { make in
+            make.top.equalTo(username.snp.bottom).offset(margin)
             make.left.equalToSuperview().offset(margin)
             make.right.equalToSuperview().offset(-margin)
-            make.height.equalTo(Double(height) * 1.5)
-        }
-        nameValidTips.snp.makeConstraints { make in
-            make.top.equalTo(nameInput.snp.bottom).offset(margin)
-            make.left.equalToSuperview().offset(margin)
-        }
-        passwordLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameValidTips.snp.bottom).offset(margin)
-            make.left.equalToSuperview().offset(margin)
-        }
-        passwordInput.snp.makeConstraints { make in
-            make.top.equalTo(passwordLabel.snp.bottom).offset(margin)
-            make.left.equalToSuperview().offset(margin)
-            make.right.equalToSuperview().offset(-margin)
-            make.height.equalTo(Double(height) * 1.5)
-        }
-        passwordValidTips.snp.makeConstraints { make in
-            make.top.equalTo(passwordInput.snp.bottom).offset(margin)
-            make.left.equalToSuperview().offset(margin)
         }
         submitButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordValidTips.snp.bottom).offset(margin * 2)
+            make.top.equalTo(password.snp.bottom).offset(margin * 2)
             make.left.equalToSuperview().offset(margin)
             make.right.equalToSuperview().offset(-margin)
-            make.height.equalTo(height * 2)
+            make.height.equalTo(btnHeight)
         }
     }
     
     func bind() {
-        viewModel = LoginViewModel(username: nameInput.rx.text.orEmpty.asObservable(),
-                                   password: passwordInput.rx.text.orEmpty.asObservable())
+        viewModel = LoginViewModel(usernameValid: username.viewModel.inputValid,
+                                   passwordValid: password.viewModel.inputValid)
         
-        
-        viewModel.usernameValid
-            .bind(to: nameValidTips.rx.isHidden)
-            .disposed(by: disposeBag)
-        
-        viewModel.usernameValid
-            .bind(to: passwordInput.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        viewModel.passwordValid
-            .bind(to: passwordValidTips.rx.isHidden)
+        username.viewModel.inputValid
+            .bind(to: password.input.rx.isEnabled)
             .disposed(by: disposeBag)
         
         viewModel.allValid.subscribe(onNext: { [weak self] enable in
@@ -151,12 +92,23 @@ class LoginController: UIViewController {
         submitButton.rx.tap
             .subscribe(onNext: {[weak self] in self?.submit()})
             .disposed(by: disposeBag)
+        
+        
+        self.view.rx.tapGesture()
+        .when(.recognized)
+        .subscribe(onNext: { [weak self] _ in self?.hiddenKeyboard() })
+        .disposed(by: disposeBag)
     }
 }
 
 extension LoginController {
     func submit() {
-        print("username = \(nameInput.text!), password = \(passwordInput.text!)")
+        print("username = \(username.inputText), password = \(password.inputText)")
+    }
+    
+    func hiddenKeyboard() {
+        username.hiddenKeyboard()
+        password.hiddenKeyboard()
     }
 }
 
