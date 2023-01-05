@@ -3,6 +3,9 @@ PODS:
   - LookinServer (1.1.2):
     - LookinServer/Core (= 1.1.2)
   - LookinServer/Core (1.1.2)
+  - ReactorKit (3.2.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -42,10 +45,12 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
   - SwiftyJSON (5.0.1)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
   - HandyJSON
   - LookinServer
+  - ReactorKit
   - RxCocoa
   - RxGesture
   - RxSwift
@@ -58,6 +63,7 @@ SPEC REPOS:
   trunk:
     - HandyJSON
     - LookinServer
+    - ReactorKit
     - RxCocoa
     - RxGesture
     - RxRelay
@@ -66,10 +72,12 @@ SPEC REPOS:
     - SnapKit
     - SwifterSwift
     - SwiftyJSON
+    - WeakMapTable
 
 SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   LookinServer: bb667a77f1ee594a8e91226e729dbe49f3401f5c
+  ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -78,7 +86,8 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: f9cc90ee21259bac7309a3c92150fa236119c53f
+PODFILE CHECKSUM: 9a700baa343f03674da5f8c82fff3eb4af0b9354
 
 COCOAPODS: 1.11.3

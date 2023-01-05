@@ -64,7 +64,7 @@ class LoginController: UIViewController {
             make.right.equalToSuperview().offset(-margin)
         }
         password.snp.makeConstraints { make in
-            make.top.equalTo(username.snp.bottom).offset(margin)
+            make.top.equalTo(username.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(margin)
             make.right.equalToSuperview().offset(-margin)
         }

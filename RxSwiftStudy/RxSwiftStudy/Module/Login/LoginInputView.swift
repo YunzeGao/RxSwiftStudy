@@ -36,6 +36,7 @@ class LoginInputView : UIView, UITextFieldDelegate {
         return field
     }()
     
+    private var tips : String = ""
     private var tipsLabel = {
         let label = UILabel()
         label.textColor = .red
@@ -56,7 +57,9 @@ class LoginInputView : UIView, UITextFieldDelegate {
         nameLabel.text = name
         input.delegate = self
         input.isSecureTextEntry = isSecureTextEntry
-        tipsLabel.text = "\(name) has to be at least \(lengthLimit) characters!"
+        
+        tips = "\(name) has to be at least \(lengthLimit) characters!"
+        tipsLabel.text = tips
         
         layoutUI()
         bind()
@@ -84,13 +87,13 @@ extension LoginInputView {
         }
         
         input.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(margin)
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
             make.left.right.equalToSuperview()
             make.height.equalTo(inputViewHeight)
         }
         
         tipsLabel.snp.makeConstraints { make in
-            make.top.equalTo(input.snp.bottom).offset(margin)
+            make.top.equalTo(input.snp.bottom).offset(8)
             make.left.bottom.equalToSuperview()
         }
     }
@@ -98,9 +101,9 @@ extension LoginInputView {
     func bind() {
         viewModel = LoginInputViewModel(input: input.rx.text.orEmpty.asObservable())
         
-        viewModel.inputValid
-            .bind(to: tipsLabel.rx.isHidden)
-            .disposed(by: disposeBag)
+        viewModel.inputValid.subscribe(onNext: {[weak self] hidden in
+            self?.tipsLabel.text = hidden ?  "" : (self?.tips ?? "")
+        }).disposed(by: disposeBag)
     }
 }
 

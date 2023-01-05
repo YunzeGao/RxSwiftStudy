@@ -18,7 +18,14 @@
 		3ECB370C29652610000DD7C9 /* RxSwiftStudyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB370B29652610000DD7C9 /* RxSwiftStudyUITestsLaunchTests.swift */; };
 		3ECB371B296526F6000DD7C9 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB371A296526F6000DD7C9 /* AppAppearance.swift */; };
 		3ECB378229658076000DD7C9 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB378129658076000DD7C9 /* LoginController.swift */; };
-		3ECB37862965808D000DD7C9 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB37852965808D000DD7C9 /* LoginModel.swift */; };
+		3EED94742966866E008966EB /* SignupField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94732966866E008966EB /* SignupField.swift */; };
+		3EED94762966A53A008966EB /* SignupValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94752966A53A008966EB /* SignupValidationResult.swift */; };
+		3EED94782966A5C7008966EB /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94772966A5C7008966EB /* SignupController.swift */; };
+		3EED947A2966ACE4008966EB /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94792966ACE4008966EB /* SignupViewModel.swift */; };
+		3EED947C2966B92F008966EB /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED947B2966B92F008966EB /* SignupService.swift */; };
+		3EED947E2966CAFD008966EB /* SignupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED947D2966CAFD008966EB /* SignupServiceImpl.swift */; };
+		3EED94842966E021008966EB /* GitHubSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94832966E021008966EB /* GitHubSearchViewController.swift */; };
+		3EED94862966E071008966EB /* GitHubSearchViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94852966E071008966EB /* GitHubSearchViewReactor.swift */; };
 		6BECF513CAAFDEC9E7261CCF /* Pods_RxSwiftStudy_RxSwiftStudyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C944AEDA75AD1955C1BFB8C4 /* Pods_RxSwiftStudy_RxSwiftStudyUITests.framework */; };
 		ABCDDE9405B0E5CFAFBB5151 /* Pods_RxSwiftStudyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19E7F2873A0D0AF3CF5B7C0 /* Pods_RxSwiftStudyTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,7 +64,14 @@
 		3ECB370B29652610000DD7C9 /* RxSwiftStudyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftStudyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3ECB371A296526F6000DD7C9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		3ECB378129658076000DD7C9 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		3ECB37852965808D000DD7C9 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		3EED94732966866E008966EB /* SignupField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupField.swift; sourceTree = "<group>"; };
+		3EED94752966A53A008966EB /* SignupValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationResult.swift; sourceTree = "<group>"; };
+		3EED94772966A5C7008966EB /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		3EED94792966ACE4008966EB /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		3EED947B2966B92F008966EB /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		3EED947D2966CAFD008966EB /* SignupServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupServiceImpl.swift; sourceTree = "<group>"; };
+		3EED94832966E021008966EB /* GitHubSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewController.swift; sourceTree = "<group>"; };
+		3EED94852966E071008966EB /* GitHubSearchViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewReactor.swift; sourceTree = "<group>"; };
 		494F40072ED61C45264416BA /* Pods-RxSwiftStudy-RxSwiftStudyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftStudy-RxSwiftStudyUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftStudy-RxSwiftStudyUITests/Pods-RxSwiftStudy-RxSwiftStudyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		649605A0E109C8B669B11775 /* Pods_RxSwiftStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		738DEF2FD11737EAD69C1DAE /* Pods-RxSwiftStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftStudy.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftStudy/Pods-RxSwiftStudy.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +191,8 @@
 		3ECB377F2965804F000DD7C9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				3EED94812966DDFB008966EB /* GithubSearch */,
+				3EED947229667C2A008966EB /* GitHubSignup */,
 				3ECB378029658059000DD7C9 /* Login */,
 			);
 			path = Module;
@@ -187,9 +203,30 @@
 			children = (
 				0FEE5D6A2965BBE800331AD0 /* LoginInputView.swift */,
 				3ECB378129658076000DD7C9 /* LoginController.swift */,
-				3ECB37852965808D000DD7C9 /* LoginModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		3EED947229667C2A008966EB /* GitHubSignup */ = {
+			isa = PBXGroup;
+			children = (
+				3EED94732966866E008966EB /* SignupField.swift */,
+				3EED947B2966B92F008966EB /* SignupService.swift */,
+				3EED94772966A5C7008966EB /* SignupController.swift */,
+				3EED947D2966CAFD008966EB /* SignupServiceImpl.swift */,
+				3EED94792966ACE4008966EB /* SignupViewModel.swift */,
+				3EED94752966A53A008966EB /* SignupValidationResult.swift */,
+			);
+			path = GitHubSignup;
+			sourceTree = "<group>";
+		};
+		3EED94812966DDFB008966EB /* GithubSearch */ = {
+			isa = PBXGroup;
+			children = (
+				3EED94852966E071008966EB /* GitHubSearchViewReactor.swift */,
+				3EED94832966E021008966EB /* GitHubSearchViewController.swift */,
+			);
+			path = GithubSearch;
 			sourceTree = "<group>";
 		};
 		7CCC88A84764B171429B92F9 /* Pods */ = {
@@ -443,11 +480,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EED947E2966CAFD008966EB /* SignupServiceImpl.swift in Sources */,
+				3EED947A2966ACE4008966EB /* SignupViewModel.swift in Sources */,
 				3ECB36ED2965260E000DD7C9 /* ViewController.swift in Sources */,
-				3ECB37862965808D000DD7C9 /* LoginModel.swift in Sources */,
 				3ECB378229658076000DD7C9 /* LoginController.swift in Sources */,
+				3EED947C2966B92F008966EB /* SignupService.swift in Sources */,
+				3EED94782966A5C7008966EB /* SignupController.swift in Sources */,
+				3EED94842966E021008966EB /* GitHubSearchViewController.swift in Sources */,
 				3ECB36E92965260E000DD7C9 /* AppDelegate.swift in Sources */,
+				3EED94762966A53A008966EB /* SignupValidationResult.swift in Sources */,
 				0FEE5D6B2965BBE800331AD0 /* LoginInputView.swift in Sources */,
+				3EED94742966866E008966EB /* SignupField.swift in Sources */,
+				3EED94862966E071008966EB /* GitHubSearchViewReactor.swift in Sources */,
 				3ECB371B296526F6000DD7C9 /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

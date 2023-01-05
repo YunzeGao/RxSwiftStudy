@@ -22,6 +22,15 @@ class ViewController: UIViewController {
         return btn
     }()
     
+    private lazy var GithubSignupButton : UIButton = {
+        var btn = UIButton(type: .custom)
+        btn.setTitle("Github Signup", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.layer.borderWidth = 2
+        btn.layer.borderColor = UIColor.red.cgColor
+        return btn
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +41,17 @@ class ViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = UIColor.white
         
-        self.view.addSubview(loginButton)
+        view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
+            make.left.equalToSuperview().offset(44)
+            make.right.equalToSuperview().offset(-44)
+            make.height.equalTo(44)
+        }
+        
+        view.addSubview(GithubSignupButton)
+        GithubSignupButton.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(24)
             make.left.equalToSuperview().offset(44)
             make.right.equalToSuperview().offset(-44)
             make.height.equalTo(44)
@@ -43,14 +60,23 @@ class ViewController: UIViewController {
     
     func bind() {
         loginButton.rx.tap
-            .subscribe(onNext: {[weak self] in self?.loginBtnClicked()})
+            .subscribe(onNext: {[weak self] in self?.gotoLoginController()})
             .disposed(by: disposeBag)
+        
+        GithubSignupButton.rx.tap
+            .subscribe(onNext: {[weak self] in self?.gotoGithubSignupController()})
+            .disposed(by: disposeBag)
+        
     }
 }
 
 extension ViewController {
-    func loginBtnClicked() {
+    func gotoLoginController() {
         self.navigationController?.pushViewController(LoginController(), animated: true)
+    }
+    
+    func gotoGithubSignupController() {
+        self.navigationController?.pushViewController(SignupController(), animated: true)
     }
 }
 
