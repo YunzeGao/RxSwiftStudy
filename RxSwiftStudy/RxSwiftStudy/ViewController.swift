@@ -31,6 +31,15 @@ class ViewController: UIViewController {
         return btn
     }()
     
+    private lazy var GithubSearch : UIButton = {
+        var btn = UIButton(type: .custom)
+        btn.setTitle("Github Search", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.layer.borderWidth = 2
+        btn.layer.borderColor = UIColor.red.cgColor
+        return btn
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +65,14 @@ class ViewController: UIViewController {
             make.right.equalToSuperview().offset(-44)
             make.height.equalTo(44)
         }
+        
+        view.addSubview(GithubSearch)
+        GithubSearch.snp.makeConstraints { make in
+            make.top.equalTo(GithubSignupButton.snp.bottom).offset(24)
+            make.left.equalToSuperview().offset(44)
+            make.right.equalToSuperview().offset(-44)
+            make.height.equalTo(44)
+        }
     }
     
     func bind() {
@@ -67,6 +84,9 @@ class ViewController: UIViewController {
             .subscribe(onNext: {[weak self] in self?.gotoGithubSignupController()})
             .disposed(by: disposeBag)
         
+        GithubSearch.rx.tap
+            .subscribe(onNext: {[weak self] in self?.gotoGitHubSearchViewController()})
+            .disposed(by: disposeBag)
     }
 }
 
@@ -77,6 +97,10 @@ extension ViewController {
     
     func gotoGithubSignupController() {
         self.navigationController?.pushViewController(SignupController(), animated: true)
+    }
+    
+    func gotoGitHubSearchViewController() {
+        self.navigationController?.pushViewController(GitHubSearchViewController(), animated: true)
     }
 }
 

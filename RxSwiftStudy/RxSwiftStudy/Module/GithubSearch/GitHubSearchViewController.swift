@@ -15,24 +15,24 @@ import RxSwift
 class GitHubSearchViewController : UIViewController, View {
     var disposeBag = DisposeBag()
     
-    lazy var tableView: UITableView = {
-        return UITableView()
+    var tableView: UITableView = {
+        let table = UITableView()
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
     }()
     
-    lazy var searchController = UISearchController(searchResultsController: nil)
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        reactor = GitHubSearchViewReactor()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        layoutUI()
+        
+        reactor = GitHubSearchViewReactor()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func bind(reactor: GitHubSearchViewReactor) {
@@ -72,5 +72,24 @@ class GitHubSearchViewController : UIViewController, View {
                 self.searchController.present(viewController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension GitHubSearchViewController {
+    func setupNav() {
+        title = "Github Search"
+        searchController.searchBar.placeholder = "搜索内容"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+    }
+    
+    func layoutUI() {
+        view.backgroundColor = .white
+        setupNav()
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
