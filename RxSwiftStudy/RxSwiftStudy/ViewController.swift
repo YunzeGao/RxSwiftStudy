@@ -13,34 +13,18 @@ import SnapKit
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     
-    private lazy var loginButton : UIButton = {
-        var btn = UIButton(type: .custom)
-        btn.setTitle("Login", for: .normal)
-        btn.setTitleColor(.black, for: .normal)
-        btn.layer.borderWidth = 2
-        btn.layer.borderColor = UIColor.red.cgColor
-        return btn
+    var tableView: UITableView = {
+        let table = UITableView()
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
     }()
     
-    private lazy var GithubSignupButton : UIButton = {
-        var btn = UIButton(type: .custom)
-        btn.setTitle("Github Signup", for: .normal)
-        btn.setTitleColor(.black, for: .normal)
-        btn.layer.borderWidth = 2
-        btn.layer.borderColor = UIColor.red.cgColor
-        return btn
-    }()
-    
-    private lazy var GithubSearch : UIButton = {
-        var btn = UIButton(type: .custom)
-        btn.setTitle("Github Search", for: .normal)
-        btn.setTitleColor(.black, for: .normal)
-        btn.layer.borderWidth = 2
-        btn.layer.borderColor = UIColor.red.cgColor
-        return btn
-    }()
-    
-    
+    let dataSource = Observable.from(optional: [
+        "Login",
+        "Github Signup",
+        "Github Search"
+    ])
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -48,45 +32,31 @@ class ViewController: UIViewController {
     }
     
     func setupUI() {
-        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = "功能列表"
+        view.backgroundColor = UIColor.white
         
-        view.addSubview(loginButton)
-        loginButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
-            make.left.equalToSuperview().offset(44)
-            make.right.equalToSuperview().offset(-44)
-            make.height.equalTo(44)
-        }
-        
-        view.addSubview(GithubSignupButton)
-        GithubSignupButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.bottom).offset(24)
-            make.left.equalToSuperview().offset(44)
-            make.right.equalToSuperview().offset(-44)
-            make.height.equalTo(44)
-        }
-        
-        view.addSubview(GithubSearch)
-        GithubSearch.snp.makeConstraints { make in
-            make.top.equalTo(GithubSignupButton.snp.bottom).offset(24)
-            make.left.equalToSuperview().offset(44)
-            make.right.equalToSuperview().offset(-44)
-            make.height.equalTo(44)
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.left.right.equalToSuperview()
         }
     }
     
     func bind() {
-        loginButton.rx.tap
-            .subscribe(onNext: {[weak self] in self?.gotoLoginController()})
-            .disposed(by: disposeBag)
+        let handlers:[() -> Void] = [
+            { self.gotoLoginController() },
+            { self.gotoGithubSignupController() },
+            { self.gotoGitHubSearchViewController() }
+        ]
+        dataSource.bind(to: tableView.rx.items(cellIdentifier: "cell")) { index, name, cell in
+            cell.textLabel?.text = name
+        }.disposed(by: disposeBag)
         
-        GithubSignupButton.rx.tap
-            .subscribe(onNext: {[weak self] in self?.gotoGithubSignupController()})
-            .disposed(by: disposeBag)
-        
-        GithubSearch.rx.tap
-            .subscribe(onNext: {[weak self] in self?.gotoGitHubSearchViewController()})
-            .disposed(by: disposeBag)
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            self?.tableView.deselectRow(at: indexPath, animated: false)
+            handlers[indexPath.row]()
+        }).disposed(by: disposeBag)
     }
 }
 
