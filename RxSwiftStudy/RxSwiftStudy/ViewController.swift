@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     let dataSource = Observable.from(optional: [
         "Login",
         "Github Signup",
-        "Github Search"
+        "Github Search",
+        "Counter Example"
     ])
 
     override func viewDidLoad() {
@@ -47,7 +48,8 @@ class ViewController: UIViewController {
         let handlers:[() -> Void] = [
             { self.gotoLoginController() },
             { self.gotoGithubSignupController() },
-            { self.gotoGitHubSearchViewController() }
+            { self.gotoGitHubSearchViewController() },
+            { self.gotoCounterController() }
         ]
         dataSource.bind(to: tableView.rx.items(cellIdentifier: "cell")) { index, name, cell in
             cell.textLabel?.text = name
@@ -71,6 +73,10 @@ extension ViewController {
     
     func gotoGitHubSearchViewController() {
         self.navigationController?.pushViewController(GitHubSearchViewController(), animated: true)
+    }
+    
+    func gotoCounterController() {
+        self.navigationController?.pushViewController(CounterController(), animated: true)
     }
 }
 
