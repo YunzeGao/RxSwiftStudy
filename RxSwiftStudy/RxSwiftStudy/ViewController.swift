@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     let dataSource = Observable.from(optional: [
         "Login",
         "Github Signup",
+        "Github Signup V2",
         "Github Search",
         "Counter Example"
     ])
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
         let handlers:[() -> Void] = [
             { self.gotoLoginController() },
             { self.gotoGithubSignupController() },
+            { self.gotoGithubSignupControllerV2() },
             { self.gotoGitHubSearchViewController() },
             { self.gotoCounterController() }
         ]
@@ -69,6 +71,10 @@ extension ViewController {
     
     func gotoGithubSignupController() {
         self.navigationController?.pushViewController(SignupController(), animated: true)
+    }
+    
+    func gotoGithubSignupControllerV2() {
+        self.navigationController?.pushViewController(SignupControllerV2(), animated: true)
     }
     
     func gotoGitHubSearchViewController() {
