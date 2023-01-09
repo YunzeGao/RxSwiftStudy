@@ -16,6 +16,7 @@ target 'RxSwiftStudy' do
   pod 'SwiftyJSON'
   pod 'SwifterSwift'
   pod 'Resolver'
+  pod 'Factory'
   pod 'LookinServer', :configurations => ['Debug']
 
   target 'RxSwiftStudyTests' do

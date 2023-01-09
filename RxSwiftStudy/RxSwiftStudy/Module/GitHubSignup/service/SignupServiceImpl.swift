@@ -7,15 +7,13 @@
 
 import RxSwift
 import Foundation
+import Factory
 
 class GitHubDefaultValidationService: GitHubValidationService {
-    let API: GitHubAPI
+    
+    @Injected(Container.gitHubAPI) var API: GitHubAPI
 
-    static let sharedValidationService = GitHubDefaultValidationService(API: GitHubDefaultAPI.sharedAPI)
-
-    init (API: GitHubAPI) {
-        self.API = API
-    }
+    static let sharedValidationService = GitHubDefaultValidationService()
     
     // validation
     

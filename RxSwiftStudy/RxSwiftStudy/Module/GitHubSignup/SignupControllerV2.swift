@@ -36,8 +36,7 @@ class SignupControllerV2: UIViewController, View {
         super.viewDidLoad()
         
         layoutUI()
-        reactor = SignupControllerReactor(service: GitHubDefaultValidationService.sharedValidationService,
-                                          api: GitHubDefaultAPI.sharedAPI)
+        reactor = SignupControllerReactor()
     }
     
     func bind(reactor: SignupControllerReactor) {

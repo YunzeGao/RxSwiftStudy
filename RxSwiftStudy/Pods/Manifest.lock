@@ -1,4 +1,5 @@
 PODS:
+  - Factory (1.3.3)
   - HandyJSON (5.0.2)
   - LookinServer (1.1.2):
     - LookinServer/Core (= 1.1.2)
@@ -49,6 +50,7 @@ PODS:
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - Factory
   - HandyJSON
   - LookinServer
   - ReactorKit
@@ -63,6 +65,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Factory
     - HandyJSON
     - LookinServer
     - ReactorKit
@@ -78,6 +81,7 @@ SPEC REPOS:
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  Factory: c2f5c7b60f4d98b5c63987a6ae3a307270e2708b
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   LookinServer: bb667a77f1ee594a8e91226e729dbe49f3401f5c
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
@@ -92,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 1246ecd548bfee1fc2162fa4dc5a81d5b2ac0ac4
+PODFILE CHECKSUM: 69b9a1136d044c82f91f19a5d08792e366c6576f
 
 COCOAPODS: 1.11.3

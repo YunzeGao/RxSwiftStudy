@@ -8,6 +8,7 @@
 import RxSwift
 import RxCocoa
 import ReactorKit
+import Factory
 
 final class SignupControllerReactor : Reactor {
     enum Action {
@@ -40,13 +41,8 @@ final class SignupControllerReactor : Reactor {
     
     let initialState = State()
     
-    let api: GitHubAPI
-    let service: GitHubValidationService
-    
-    init(service: GitHubValidationService, api: GitHubAPI) {
-        self.api = api
-        self.service = service
-    }
+    @Injected(Container.gitHubAPI) private var api: GitHubAPI
+    @Injected(Container.gitHubValid) private var service: GitHubValidationService
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
