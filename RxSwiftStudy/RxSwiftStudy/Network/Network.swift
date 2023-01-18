@@ -1,0 +1,36 @@
+//
+//  Network.swift
+//  RxSwiftStudy
+//
+//  Created by 高云泽 on 2023/1/17.
+//
+
+import Foundation
+import RxSwift
+import HandyJSON
+
+class MetaModel: HandyJSON {
+    required init() {}
+}
+
+class BaseModel: MetaModel {
+    var success: Bool = true
+    var errorMsg: String?
+    
+    init(errMsg: String) {
+        success = false
+        errorMsg = errMsg
+    }
+    
+    required init() {}
+}
+
+class Network {
+    static func getObject<T: MetaModel>(_ method: RequestMethod, _ url: String, params: [String : Any]? = nil, type: T.Type = BaseModel.self) -> Observable<T> {
+        return NetworkCore.request(type, method, url, params: params)
+    }
+    
+    static func getObjects<T: MetaModel>(_ method: RequestMethod, _ url: String, params: [String : Any]? = nil, type: T.Type = BaseModel.self) -> Observable<[T]> {
+        return NetworkCore.request(type, method, url, params: params)
+    }
+}

@@ -1,21 +1,42 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '14.0'
 
+# Rx 相关
+def rx_swift
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxTheme'
+  pod 'RxGesture'
+  pod 'RxOptional'
+  pod 'RxDataSources'
+  pod 'RxViewController'
+  pod 'ReactorKit'
+end
+
+# UI 相关
+def ui_ex
+  pod 'SnapKit'
+  pod 'Toast-Swift'
+  pod 'IGListKit'
+end
+
+# 网络相关
+def net_ex
+  pod 'Alamofire'
+  pod 'RxAlamofire'
+end
+
 target 'RxSwiftStudy' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
   # Pods for RxSwiftStudy
-  pod 'SnapKit'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'RxTheme'
-  pod 'RxGesture'
-  pod 'ReactorKit'
+  rx_swift
+  ui_ex
+  net_ex
   pod 'HandyJSON'
   pod 'SwiftyJSON'
   pod 'SwifterSwift'
-  pod 'Resolver'
   pod 'Factory'
   pod 'LookinServer', :configurations => ['Debug']
 

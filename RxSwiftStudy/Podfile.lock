@@ -1,23 +1,42 @@
 PODS:
+  - Alamofire (5.6.4)
+  - Differentiator (5.0.0)
   - Factory (1.3.3)
   - HandyJSON (5.0.2)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
   - LookinServer (1.1.2):
     - LookinServer/Core (= 1.1.2)
   - LookinServer/Core (1.1.2)
   - ReactorKit (3.2.0):
     - RxSwift (~> 6.0)
     - WeakMapTable (~> 1.1)
-  - Resolver (1.5.0)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxOptional (5.0.2):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - RxTheme (6.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxViewController (2.0.0):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
   - SnapKit (5.6.0)
@@ -47,55 +66,78 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
   - SwiftyJSON (5.0.1)
+  - Toast-Swift (5.0.1)
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Factory
   - HandyJSON
+  - IGListKit
   - LookinServer
   - ReactorKit
-  - Resolver
+  - RxAlamofire
   - RxCocoa
+  - RxDataSources
   - RxGesture
+  - RxOptional
   - RxSwift
   - RxTheme
+  - RxViewController
   - SnapKit
   - SwifterSwift
   - SwiftyJSON
+  - Toast-Swift
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Differentiator
     - Factory
     - HandyJSON
+    - IGListDiffKit
+    - IGListKit
     - LookinServer
     - ReactorKit
-    - Resolver
+    - RxAlamofire
     - RxCocoa
+    - RxDataSources
     - RxGesture
+    - RxOptional
     - RxRelay
     - RxSwift
     - RxTheme
+    - RxViewController
     - SnapKit
     - SwifterSwift
     - SwiftyJSON
+    - Toast-Swift
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   Factory: c2f5c7b60f4d98b5c63987a6ae3a307270e2708b
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   LookinServer: bb667a77f1ee594a8e91226e729dbe49f3401f5c
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
-  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTheme: be60cb14e0544b3cbd574cc37fed35ba9d61aa1f
+  RxViewController: 56486fa0afd629a1d6b5ba077f3b8cd9dc31b5d2
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 69b9a1136d044c82f91f19a5d08792e366c6576f
+PODFILE CHECKSUM: 274e6f6214fdf8869686fe0a7b3d2503a6c187b9
 
 COCOAPODS: 1.11.3

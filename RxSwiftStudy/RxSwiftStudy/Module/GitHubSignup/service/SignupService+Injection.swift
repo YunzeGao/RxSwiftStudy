@@ -6,15 +6,7 @@
 //
 
 import Foundation
-import Resolver
 import Factory
-
-extension Resolver {
-    public static func registerSignupServices() {
-        register { GitHubDefaultAPI.sharedAPI as GitHubAPI }
-        register { GitHubDefaultValidationService.sharedValidationService as GitHubValidationService }
-    }
-}
 
 extension Container {
     static let gitHubAPI = Factory<GitHubAPI> { GitHubDefaultAPI.sharedAPI }
