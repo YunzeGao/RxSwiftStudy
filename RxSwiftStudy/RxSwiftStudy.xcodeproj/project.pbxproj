@@ -34,6 +34,10 @@
 		3ECC0A732985086800634D9B /* DemoSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC0A722985086800634D9B /* DemoSectionController.swift */; };
 		3EE328A0298681A80049287E /* TodoListCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3289F298681A80049287E /* TodoListCellReactor.swift */; };
 		3EE328A3298764AF0049287E /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE328A2298764AF0049287E /* String+BoundingRect.swift */; };
+		3EE328A62987C9240049287E /* ApiClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE328A52987C9240049287E /* ApiClientService.swift */; };
+		3EE328A82987CEB20049287E /* ApiClientOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE328A72987CEB20049287E /* ApiClientOptions.swift */; };
+		3EE328AA2987CFC20049287E /* ApiClientConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE328A92987CFC20049287E /* ApiClientConst.swift */; };
+		3EE328AC2987DFD20049287E /* ApiClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE328AB2987DFD20049287E /* ApiClientRequest.swift */; };
 		3EED94742966866E008966EB /* SignupField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94732966866E008966EB /* SignupField.swift */; };
 		3EED94762966A53A008966EB /* SignupValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94752966A53A008966EB /* SignupValidationResult.swift */; };
 		3EED94782966A5C7008966EB /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED94772966A5C7008966EB /* SignupController.swift */; };
@@ -101,6 +105,10 @@
 		3ECC0A722985086800634D9B /* DemoSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSectionController.swift; sourceTree = "<group>"; };
 		3EE3289F298681A80049287E /* TodoListCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCellReactor.swift; sourceTree = "<group>"; };
 		3EE328A2298764AF0049287E /* String+BoundingRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
+		3EE328A52987C9240049287E /* ApiClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientService.swift; sourceTree = "<group>"; };
+		3EE328A72987CEB20049287E /* ApiClientOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientOptions.swift; sourceTree = "<group>"; };
+		3EE328A92987CFC20049287E /* ApiClientConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientConst.swift; sourceTree = "<group>"; };
+		3EE328AB2987DFD20049287E /* ApiClientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientRequest.swift; sourceTree = "<group>"; };
 		3EED94732966866E008966EB /* SignupField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupField.swift; sourceTree = "<group>"; };
 		3EED94752966A53A008966EB /* SignupValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupValidationResult.swift; sourceTree = "<group>"; };
 		3EED94772966A5C7008966EB /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
@@ -215,6 +223,7 @@
 		3EAF0E642975575500419D70 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3EE328A42987C9020049287E /* ApiClient */,
 				3EAF0E6529764E4B00419D70 /* Network.swift */,
 				3EAF0E6729764E6E00419D70 /* NetworkCore.swift */,
 			);
@@ -329,6 +338,17 @@
 				3EE328A2298764AF0049287E /* String+BoundingRect.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3EE328A42987C9020049287E /* ApiClient */ = {
+			isa = PBXGroup;
+			children = (
+				3EE328A92987CFC20049287E /* ApiClientConst.swift */,
+				3EE328A52987C9240049287E /* ApiClientService.swift */,
+				3EE328A72987CEB20049287E /* ApiClientOptions.swift */,
+				3EE328AB2987DFD20049287E /* ApiClientRequest.swift */,
+			);
+			path = ApiClient;
 			sourceTree = "<group>";
 		};
 		3EED947229667C2A008966EB /* GitHubSignup */ = {
@@ -628,10 +648,13 @@
 				3EED947A2966ACE4008966EB /* SignupViewModel.swift in Sources */,
 				3ECB36ED2965260E000DD7C9 /* ViewController.swift in Sources */,
 				3E345A9A297A96E900793137 /* AlertService.swift in Sources */,
+				3EE328A62987C9240049287E /* ApiClientService.swift in Sources */,
 				3E345A88297A3CED00793137 /* TodoService.swift in Sources */,
 				3ECB378229658076000DD7C9 /* LoginController.swift in Sources */,
 				3EE328A0298681A80049287E /* TodoListCellReactor.swift in Sources */,
 				3E345A94297A4D8C00793137 /* BaseViewController.swift in Sources */,
+				3EE328AA2987CFC20049287E /* ApiClientConst.swift in Sources */,
+				3EE328AC2987DFD20049287E /* ApiClientRequest.swift in Sources */,
 				3EED947C2966B92F008966EB /* SignupService.swift in Sources */,
 				3EED94782966A5C7008966EB /* SignupController.swift in Sources */,
 				3EE328A3298764AF0049287E /* String+BoundingRect.swift in Sources */,
@@ -648,6 +671,7 @@
 				3ECC0A732985086800634D9B /* DemoSectionController.swift in Sources */,
 				3EAF0E6629764E4B00419D70 /* Network.swift in Sources */,
 				3EED94762966A53A008966EB /* SignupValidationResult.swift in Sources */,
+				3EE328A82987CEB20049287E /* ApiClientOptions.swift in Sources */,
 				0FEE5D6B2965BBE800331AD0 /* LoginInputView.swift in Sources */,
 				3E345A92297A4CE700793137 /* TodoEditController.swift in Sources */,
 				3EED94742966866E008966EB /* SignupField.swift in Sources */,
